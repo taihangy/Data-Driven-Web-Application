@@ -21,11 +21,34 @@
 	<div>
 		1. How can we select elements? What is the difference between select() and selectAll()?
 		<script>
+		console.log(d3.select("div"));
+		console.log(d3.selectAll("div"));
+		console.log(d3.select(".header"));
+
 		</script>
 	</div>
 	<div>
 		2. How can we create new elements, and set their attributes and styles?
 		<script>
+		var svg = d3.select("svg");
+		svg.append("circle").attr("r", 10);
+
+		var text = "I love you";
+		var tokens = text.split(" ");
+
+		for (var i = 0; i < tokens.length; i++) {
+			svg.append("text").text(tokens[i])
+			.attr("x", Math.random() * svg.attr("width"))
+			.attr("y", Math.random() * svg.attr("height"))
+			;
+		}
+
+		tokens.forEach(function(word, i, tokens) {
+			svg.append("text").text(i)
+			.attr("x", Math.random() * svg.attr("width"))
+			.attr("y", Math.random() * svg.attr("height"))
+			;
+		});
 		</script>
 	</div>
 	<div>
