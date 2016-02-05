@@ -54,6 +54,15 @@
 	<div>
 		3. How do we update the attributes of existing elements? 
 		<script>
+		svg.select("circle")
+		.attr("cx", 133)
+		.attr("cy", 100)
+		.style("fill", "#00f")
+		.style("opacity", 0.25)
+		.attr("r", 50)
+		;
+
+		svg.selectAll("text").style("fill", "#f00");
 		</script>
 	</div>
 	
