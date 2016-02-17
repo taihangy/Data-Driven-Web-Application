@@ -21,10 +21,40 @@
 		// Data in the form of an array of objects with named values. 
 		//  These are adapted from http://en.wikipedia.org/wiki/Iris_flower_data_set
 		var irises = [
-		  {length: 1.4, width: 0.1},
-		  {length: 1.4, width: 0.2},
-		  {length: 1.3, width: 0.2}
+		  {length: 1.4, width: 0.1, area: 10},
+		  {length: 1.4, width: 0.2, area: 20},
+		  {length: 1.3, width: 0.2, area: 30}
 		];
+
+		var svg = d3.select("svg");
+		irises.forEach(function(iris, i) {
+			svg.append("circle")
+		});
+
+		var circles = d3.selectAll("circle");
+
+		var xScale = d3.scale.linear()
+		.domain([1, 1.5]).range([0, 200]);
+
+		var yScale = d3.scale.linear()
+		.domain([0, 0.3]).range([200, 0]);
+		
+		// sqrt not linear because we accosiate radius with area
+		var rScale = d3.scale.sqrt()
+		.domain([0, 30]).range([0, 30]);
+
+		circles.data(irises);
+
+		circles.
+		attr("cx", function(iris) {
+			return xScale(iris.length);
+		})
+		.attr("cy", function(iris) {
+			return yScale(iris.width);
+		})
+		.attr("r", function(iris) {
+			return rScale(iris.area);
+		});
 		</script>
 	</div>
 	<div>

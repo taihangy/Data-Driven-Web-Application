@@ -1,0 +1,50 @@
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<style>
+	body { font-family: "Open Sans"; }
+	div { margin: 30px; }
+
+	/* SVG styles will go here */
+	svg { border: solid black 1px; }
+	polyline {fill : #aaa; stroke: #00f; stroke-width: 5;}
+	path{ stroke: #00f; fill : #aaa; stroke-width: 5;}
+	rect { opacity: 0.25}
+	</style>
+</head>
+<body>
+	<h3>Prompt for Wednesday, Feb 3. Scalable Vector Graphics</h3>
+
+	<div>
+		SVG is an XML specification of vector graphics. Visual elements are represented as tags, which have styles and attributes. 
+	</div>
+	<div>
+		1. Polylines. How does SVG understand coordinates?
+		<svg height="400" width="400">
+		<polyline id="polyline1" points="10,10 100,100 10,100 100,10">
+		<line id = "line" poins="200, 200 210,230">
+		</svg>
+	</div>
+	<div>
+		2. Paths. This is the most complicated SVG element, but also one of the most useful. It contains <a href="https://www.w3.org/TR/SVG/paths.html#PathData">a tiny programming language</a>.
+		<svg height="400" width="400">
+		<path id="path1" d="M 100,200 100,100  L 200,100 200,200 Z"/>
+		</svg>
+	</div>
+	<div>
+		3. Transformations are another useful (but a bit tricky) tool. How do we stretch, rotate, and shift elements, and how does the order of these operations affect the result?
+		<svg height="400" width="400">
+		<!-- <rect x="100" y="100" height="100" width="100" /> -->s
+		<g transform="translate(105,0)">
+		<rect x="100" y="100" height="100" width="100" />
+		<rect x="100" y="100" height="100" width="100" 
+		transform="translate(20,20)" />
+		</g>
+		</svg>
+	</div>
+	
+	<h3>Discussion: Minard's Map</h3>
+	<div>Edward Tufte popularized <a href="https://en.wikipedia.org/wiki/File:Minard.png">this map by Charles Minard of Napoleon's disastrous Russian invasion</a> as the greatest visual presentation of data ever. How many different variables is Minard presenting? What is he choosing NOT to present? (Is this actually a map?) What elements would you use to copy this "carte figurative" in SVG?
+	</div>
+</body>
+</html>
